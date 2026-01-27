@@ -36,10 +36,9 @@
 
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col items-center px-4 transition-colors duration-500">
 
-  <!-- Header -->
   <header class="w-full max-w-4xl flex justify-between items-center mt-10 mb-12 animate-fade">
     <h1 class="text-3xl font-semibold tracking-tight">
-      🎵 Search Preview Reff Song
+      Search Preview Reff Song
     </h1>
 
     <button
@@ -49,14 +48,12 @@
              shadow-[inset_2px_2px_5px_rgba(0,0,0,0.15),inset_-2px_-2px_5px_rgba(255,255,255,0.7)]
              dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6),inset_-2px_-2px_6px_rgba(255,255,255,0.05)]
              hover:scale-105 transition-all duration-300">
-      🌙 Dark
+      🌙 Toggle Dark
     </button>
   </header>
 
-  <!-- Main -->
   <main class="w-full max-w-4xl animate-fade">
 
-    <!-- Search Box -->
     <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 mb-8
                 shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.7)]
                 dark:shadow-[8px_8px_20px_rgba(0,0,0,0.7),-8px_-8px_20px_rgba(255,255,255,0.05)]">
@@ -83,26 +80,23 @@
       </div>
     </div>
 
-    <!-- Loading -->
     <div id="loading" class="hidden text-center text-sm text-gray-500 animate-pulse">
       Loading...
     </div>
 
-    <!-- Results -->
-    <div id="results" class="grid gap-6 animate-fade">
-      <!-- Card Result Example -->
-      <!--
-      <div class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-800 animate-float
-                  shadow-[6px_6px_16px_rgba(0,0,0,0.15),-6px_-6px_16px_rgba(255,255,255,0.7)]
-                  dark:shadow-[6px_6px_16px_rgba(0,0,0,0.7),-6px_-6px_16px_rgba(255,255,255,0.05)]">
-        <h3 class="font-semibold text-lg">Judul Lagu</h3>
-        <p class="text-sm text-gray-500">Nama Artis</p>
-      </div>
-    </div>
-
+    <div id="results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade p-4">
+  <div class="bg-white rounded-lg p-6 shadow-emboss hover:shadow-xl transition-shadow duration-300">
+    <h3 class="text-lg font-bold text-gray-800 embossed">Judul Item</h3>
+    <p class="text-gray-600 mt-2">Deskripsi singkat item.</p>
+  </div>
+  <div class="bg-white rounded-lg p-6 shadow-emboss hover:shadow-xl transition-shadow duration-300">
+    <h3 class="text-lg font-bold text-gray-800 embossed">Judul Item 2</h3>
+    <p class="text-gray-600 mt-2">Deskripsi singkat item.</p>
+  </div>
+  <!-- Tambahkan item lainnya -->
+</div>
   </main>
 
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
