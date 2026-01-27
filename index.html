@@ -1,27 +1,107 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="transition-colors duration-500">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Search Preview Reff Song</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: {
+            fade: 'fadeIn 0.6s ease-out',
+            float: 'float 4s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Search Preview Reff Song</h1>
-    <button id="toggle-dark">Dark Mode</button>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col items-center px-4 transition-colors duration-500">
+
+  <!-- Header -->
+  <header class="w-full max-w-4xl flex justify-between items-center mt-10 mb-12 animate-fade">
+    <h1 class="text-3xl font-semibold tracking-tight">
+      🎵 Search Preview Reff Song
+    </h1>
+
+    <button
+      id="toggle-dark"
+      class="px-4 py-2 rounded-xl font-medium
+             bg-gray-100 dark:bg-gray-800
+             shadow-[inset_2px_2px_5px_rgba(0,0,0,0.15),inset_-2px_-2px_5px_rgba(255,255,255,0.7)]
+             dark:shadow-[inset_2px_2px_6px_rgba(0,0,0,0.6),inset_-2px_-2px_6px_rgba(255,255,255,0.05)]
+             hover:scale-105 transition-all duration-300">
+      🌙 Dark
+    </button>
   </header>
 
-  <main>
-    <div class="search-container">
-      <input type="text" id="search-input" placeholder="Cari lagu, artis, atau album...">
-      <button id="search-btn">Cari</button>
+  <!-- Main -->
+  <main class="w-full max-w-4xl animate-fade">
+
+    <!-- Search Box -->
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 mb-8
+                shadow-[8px_8px_20px_rgba(0,0,0,0.15),-8px_-8px_20px_rgba(255,255,255,0.7)]
+                dark:shadow-[8px_8px_20px_rgba(0,0,0,0.7),-8px_-8px_20px_rgba(255,255,255,0.05)]">
+
+      <div class="flex gap-4">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Cari lagu, artis, atau album..."
+          class="flex-1 px-5 py-3 rounded-xl bg-gray-100 dark:bg-gray-900
+                 outline-none
+                 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.15),inset_-3px_-3px_6px_rgba(255,255,255,0.7)]
+                 dark:shadow-[inset_3px_3px_6px_rgba(0,0,0,0.7),inset_-3px_-3px_6px_rgba(255,255,255,0.05)]
+                 focus:ring-2 focus:ring-indigo-400 transition-all duration-300"/>
+
+        <button
+          id="search-btn"
+          class="px-6 py-3 rounded-xl font-semibold text-white
+                 bg-indigo-500 hover:bg-indigo-600
+                 shadow-lg hover:shadow-xl
+                 transition-all duration-300 hover:-translate-y-0.5">
+          Cari
+        </button>
+      </div>
     </div>
 
-    <div id="loading" class="hidden">Loading...</div>
-    <div id="results"></div>
+    <!-- Loading -->
+    <div id="loading" class="hidden text-center text-sm text-gray-500 animate-pulse">
+      Loading...
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="grid gap-6 animate-fade">
+      <!-- Card Result Example -->
+      <div class="p-5 rounded-2xl bg-gray-100 dark:bg-gray-800 animate-float
+                  shadow-[6px_6px_16px_rgba(0,0,0,0.15),-6px_-6px_16px_rgba(255,255,255,0.7)]
+                  dark:shadow-[6px_6px_16px_rgba(0,0,0,0.7),-6px_-6px_16px_rgba(255,255,255,0.05)]">
+        <h3 class="font-semibold text-lg">Judul Lagu</h3>
+        <p class="text-sm text-gray-500">Nama Artis</p>
+      </div>
+    </div>
+
   </main>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
