@@ -4,10 +4,15 @@ const resultsDiv = document.getElementById('results');
 const loadingDiv = document.getElementById('loading');
 const toggleDarkBtn = document.getElementById('toggle-dark');
 
-// Toggle dark mode
+// Toggle dark mode di seluruh halaman
 toggleDarkBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  document.querySelector('header').classList.toggle('dark');
+  document.documentElement.classList.toggle('dark');
+
+  if (document.documentElement.classList.contains('dark')) {
+    toggleDarkBtn.textContent = '☀️ Light';
+  } else {
+    toggleDarkBtn.textContent = '🌙 Dark';
+  }
 });
 
 // Load history dari localStorage
@@ -18,6 +23,7 @@ searchBtn.addEventListener('click', () => {
   const query = searchInput.value.trim();
   if (!query) return;
 
+  // Simpan ke history
   searchHistory.push(query);
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
