@@ -18,7 +18,6 @@ searchBtn.addEventListener('click', () => {
   const query = searchInput.value.trim();
   if (!query) return;
 
-  // Simpan ke history
   searchHistory.push(query);
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
