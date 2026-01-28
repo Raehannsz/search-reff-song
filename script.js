@@ -60,12 +60,16 @@ function displayResults(songs) {
   resultsDiv.innerHTML = songs
     .map(
       (song) => `
-    <div class="result-item">
+    <div class="flex-1 px-5 py-3 rounded-xl bg-gray-100 dark:bg-gray-900
+                 outline-none
+                 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.15),inset_-3px_-3px_6px_rgba(255,255,255,0.7)]
+                 dark:shadow-[inset_3px_3px_6px_rgba(0,0,0,0.7),inset_-3px_-3px_6px_rgba(255,255,255,0.05)]
+                 focus:ring-2 focus:ring-indigo-400 transition-all duration-300">
       <img src="${song.artworkUrl100.replace('100x100', '200x200')}" alt="Cover Art">
       <h3>${song.trackName}</h3>
       <p>${song.artistName}</p>
       <p><em>${song.collectionName}</em></p>
-      <audio controls src="${song.previewUrl}"></audio>
+      <div class="mt-2"><audio controls src="${song.previewUrl}" class="w-full" ></audio> </div>
       <a href="${song.trackViewUrl}" target="_blank">Dengar di Apple Music</a>
     </div>
   `
