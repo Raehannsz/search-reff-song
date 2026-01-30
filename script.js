@@ -19,7 +19,7 @@ toggleDarkBtn.addEventListener('click', () => {
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
 // Event search
-searchBtn.addEventListener('click', () => {
+function handleSearch() {
   const query = searchInput.value.trim();
   if (!query) return;
 
@@ -28,6 +28,14 @@ searchBtn.addEventListener('click', () => {
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
   fetchSongs(query);
+};
+
+searchBtn.addEventListener('click', handleSearch);
+
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    handleSearch();
+  }
 });
 
 // Function untuk fetch lagu dari iTunes API
